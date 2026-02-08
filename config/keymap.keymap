@@ -60,19 +60,18 @@
         };
     };
 
-    /* 1. スクロール専用リスナー */
-    /* ここに直接 layers = <3>; と書くのがZMKの標準的な「レイヤー限定」方法です */
+    /* スクロール専用リスナー */
+    /* 注意: layersプロパティがサポートされていないため、レイヤーごとの条件分岐はできません */
+    /* レイヤー3でのスクロール機能が必要な場合は、別の方法を検討してください */
     scroll_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        layers = <3>; 
+        status = "disabled";
         input-processors = <&zip_xy_scaler 1 20>, <&zip_xy_to_scroll_mapper>;
     };
 };
 
-/* 2. 既存の移動リスナーの上書き */
+/* 既存の移動リスナーの上書き */
 &trackball_listener {
-    /* Layer 0, 1, 2 のときのみこのリスナー（移動）を有効化する */
-    layers = <0 1 2>;
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
