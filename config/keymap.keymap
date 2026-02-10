@@ -1,14 +1,15 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
 
 / {
     combos {
         compatible = "zmk,combos";
+
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <28 29>;
@@ -41,11 +42,11 @@
 
         layer_2 {
             bindings = <
-&none           &none            &none              &none                 &none                  &none                       &none         &none         &none         &none        &none              &none
-&trans          &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LS(N5)                  &kp N7        &kp N8        &kp N9        &kp TILDE    &kp CARET          &kp BACKSLASH
-&kp ASTERISK    &kp DOLLAR       &kp SQT            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N5      &none   &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp AT_SIGN  &kp COLON          &kp RETURN
-&kp LEFT_SHIFT  &kp PERCENT      &kp N7             &kp N8                &kp N9                 &kp N0      &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp HASH     &kp LG(BACKSLASH)  &kp UNDERSCORE
-&trans          &trans           &trans             &none                 &none                  &trans      &trans  &trans  &trans        &trans        &kp N0        &kp PERIOD   &trans             &trans
+&none           &none            &none              &none                 &none                  &none                          &none         &none         &none         &none        &none              &none
+&trans          &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LS(N5)                     &kp N7        &kp N8        &kp N9        &kp TILDE    &kp CARET          &kp BACKSLASH
+&kp ASTERISK    &kp DOLLAR       &kp SQT            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AMPERSAND  &none   &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp AT_SIGN  &kp COLON          &kp RETURN
+&kp LEFT_SHIFT  &kp PERCENT      &kp LS(AT_SIGN)    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE       &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp HASH     &kp LG(BACKSLASH)  &kp UNDERSCORE
+&trans          &trans           &trans             &none                 &none                  &trans         &trans  &trans  &trans        &trans        &kp N0        &kp PERIOD   &trans             &trans
             >;
         };
 
@@ -63,6 +64,7 @@
     /* スクロール専用リスナー */
     /* 注意: layersプロパティがサポートされていないため、レイヤーごとの条件分岐はできません */
     /* レイヤー3でのスクロール機能が必要な場合は、別の方法を検討してください */
+
     scroll_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -72,6 +74,5 @@
 };
 
 /* 既存の移動リスナーの上書き */
-&trackball_listener {
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-};
+
+&trackball_listener { input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>; };
