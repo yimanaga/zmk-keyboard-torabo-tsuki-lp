@@ -62,6 +62,12 @@
     };
 };
 
+/* layer-tap: 別キーを押したら即座にレイヤーを有効化（layer1でF→左クリック等） */
+&lt {
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+};
+
 /* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
 &trackball_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
