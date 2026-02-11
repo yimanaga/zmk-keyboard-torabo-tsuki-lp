@@ -34,9 +34,9 @@
             bindings = <
 &none   &none   &none                   &none      &none               &none                                    &none   &none           &none           &none      &none    &none
 &trans  &kp F1  &kp F2                  &kp F3     &kp F4              &kp F5                                   &kp F6  &kp F7          &kp F8          &kp F9     &kp F10  &kp F11
-&trans  &trans  &kp LA(LG(LEFT_ARROW))  &mkp RCLK  &mkp LCLK           &kp LA(LG(RIGHT_ARROW))  &none   &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK  &trans   &kp F12
+&trans  &trans  &kp LA(LG(LEFT_ARROW))  &mkp RCLK  &mkp MB1            &kp LA(LG(RIGHT_ARROW))  &none   &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK  &trans   &kp F12
 &trans  &trans  &trans                  &kp LG(R)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)      &trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans   &trans
-&trans  &trans  &trans                  &none      &none               &trans                   &trans  &trans  &trans  &trans          &trans          &trans     &trans   &trans
+&trans  &trans  &trans                  &none      &none               &mkp LCLK                &trans  &trans  &trans  &trans          &trans          &trans     &trans   &trans
             >;
         };
 
@@ -63,17 +63,25 @@
 };
 
 /* layer-tap: 別キーを押したら即座にレイヤーを有効化（layer1でF→左クリック等） */
+
 &lt {
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
 };
 
 /* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
+
 &trackball_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
     scroller {
         layers = <3>;
+
         /* Macの自然スクロール向け: Y軸反転を解除 */
-        input-processors = <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>, <&zip_xy_scaler 1 20>, <&zip_xy_to_scroll_mapper>;
+
+        input-processors =
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_scaler 1 20>,
+            <&zip_xy_to_scroll_mapper>;
     };
 };
