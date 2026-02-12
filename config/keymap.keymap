@@ -11,10 +11,10 @@
         compatible = "zmk,combos";
 
         /* G+親指でペアリングクリア (Fをcomboから外してlayer1の左クリックを有効化) */
-        bt_clear {
+
+        BT_Clear {
             bindings = <&bt BT_CLR>;
-            key-positions = <29 30>;
-            layers = <2>;
+            key-positions = <30>;
         };
     };
 
