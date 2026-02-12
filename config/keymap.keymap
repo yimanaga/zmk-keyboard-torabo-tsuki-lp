@@ -10,11 +10,11 @@
     combos {
         compatible = "zmk,combos";
 
-        /* G+親指でペアリングクリア (Fをcomboから外してlayer1の左クリックを有効化) */
-
-        BT_Clear {
+        /* G+親指(30の下)でペアリングクリア (Fをcomboから外してlayer1の左クリックを有効化) */
+        bt_clear {
             bindings = <&bt BT_CLR>;
-            key-positions = <30>;
+            key-positions = <29 44>;
+            layers = <2>;
         };
     };
 
@@ -61,13 +61,6 @@
             >;
         };
     };
-};
-
-/* layer-tap: 別キーを押したら即座にレイヤーを有効化（layer1でF→左クリック等） */
-
-&lt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <200>;
 };
 
 /* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
