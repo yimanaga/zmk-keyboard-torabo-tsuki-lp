@@ -35,7 +35,7 @@
             bindings = <
 &none   &none   &none                   &none      &none               &none                                    &none   &none           &none           &none      &none    &none
 &trans  &kp F1  &kp F2                  &kp F3     &kp F4              &kp F5                                   &kp F6  &kp F7          &kp F8          &kp F9     &kp F10  &kp F11
-&trans  &trans  &kp LA(LG(LEFT_ARROW))  &mkp LCLK  &mkp RCLK           &kp LA(LG(RIGHT_ARROW))  &none   &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK  &trans   &kp F12
+&trans  &trans  &kp LA(LG(LEFT_ARROW))  &mkp RCLK  &mkp LCLK  &kp LA(LG(RIGHT_ARROW))  &none   &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK  &trans   &kp F12
 &trans  &trans  &trans                  &kp LG(R)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)      &trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans   &trans
 &trans  &trans  &trans                  &none      &none               &mkp LCLK                &trans  &trans  &trans  &trans          &trans          &trans     &trans   &trans
             >;
