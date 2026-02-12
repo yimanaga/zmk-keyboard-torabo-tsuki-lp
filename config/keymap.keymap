@@ -65,6 +65,18 @@
     };
 };
 
+/*
+ * mod-tap を tap-preferred に変更:
+ * 200ms 以上ホールドした場合のみ修飾キーとして認識し、
+ * それ以下の場合は常にタップ（文字入力）として動作する。
+ * 対象: Z(LEFT_SHIFT), /(RIGHT_SHIFT), LANG2(LEFT_COMMAND)
+ */
+
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+};
+
 /* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
 
 &trackball_listener {
