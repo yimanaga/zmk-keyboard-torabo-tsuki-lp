@@ -46,7 +46,7 @@
         layer_2 {
             bindings = <
 &none           &none            &none        &none         &none         &none                         &none         &none         &none         &none          &none             &none
-&trans          &kp EXCLAMATION  &kp JIS_DQT  &kp JIS_LBKT  &kp JIS_RBKT  &kp LS(N5)                    &kp N7        &kp N8        &kp N9        &kp JIS_TILDE  &kp JIS_CARET     &kp JIS_BSLH
+&trans          &kp EXCLAMATION  &kp JIS_DQT  &kp JIS_LBKT  &kp JIS_RBKT  &kp LS(N5)                    &kp N7        &kp N8        &kp N9        &kp JIS_TILDE  &kp JIS_CARET     &kp BACKSPACE
 &kp JIS_STAR    &kp DOLLAR       &kp JIS_SQT  &kp JIS_LPAR  &kp JIS_RPAR  &kp JIS_AMPS  &none   &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JIS_AT     &kp JIS_COLON     &kp RETURN
 &kp LEFT_SHIFT  &kp PERCENT      &kp JIS_AT   &kp JIS_LBRC  &kp JIS_RBRC  &kp JIS_PIPE  &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp HASH       &kp LG(JIS_BSLH)  &kp JIS_UNDER
 &trans          &trans           &trans       &none         &none         &trans        &trans  &trans  &trans        &trans        &kp N0        &kp PERIOD     &trans            &trans
