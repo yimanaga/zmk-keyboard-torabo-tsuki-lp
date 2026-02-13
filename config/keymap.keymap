@@ -7,6 +7,35 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "keys_jis.h"
 
+/*
+ * mod-tap を tap-preferred に変更:
+ * 200ms 以上ホールドした場合のみ修飾キーとして認識し、
+ * それ以下の場合は常にタップ（文字入力）として動作する。
+ * 対象: Z(LEFT_SHIFT), /(RIGHT_SHIFT), LANG2(LEFT_COMMAND)
+ */
+
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+};
+
+/* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
+
+&trackball_listener {
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
+    scroller {
+        layers = <3>;
+
+        /* Macの自然スクロール向け: Y軸反転を解除 */
+
+        input-processors =
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_scaler 1 20>,
+            <&zip_xy_to_scroll_mapper>;
+    };
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -62,28 +91,5 @@
 &trans  &trans  &trans  &none         &none         &trans      &trans      &trans  &trans  &trans          &trans          &trans           &trans  &trans
             >;
         };
-    };
-};
-
-/*
- * mod-tap を tap-preferred に変更:
- * 200ms 以上ホールドした場合のみ修飾キーとして認識し、
- * それ以下の場合は常にタップ（文字入力）として動作する。
- * 対象: Z(LEFT_SHIFT), /(RIGHT_SHIFT), LANG2(LEFT_COMMAND)
- */
-/* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
-
-&trackball_listener {
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
-    scroller {
-        layers = <3>;
-
-        /* Macの自然スクロール向け: Y軸反転を解除 */
-
-        input-processors =
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_xy_scaler 1 20>,
-            <&zip_xy_to_scroll_mapper>;
     };
 };
