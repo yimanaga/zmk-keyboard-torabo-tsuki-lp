@@ -54,11 +54,11 @@
 
         layer_0 {
             bindings = <
-&none       &none             &none       &none  &none  &none                                                  &none        &none        &none            &none             &none                 &none
-&kp ESCAPE  &kp Q             &kp W       &kp E  &kp R  &kp T                                                  &kp Y        &kp U        &kp I            &kp O             &kp P                 &kp BSPC
-&kp TAB     &lt 1 A           &lt 3 S     &kp D  &kp F  &kp G                   &none        &none             &kp H        &kp J        &kp K            &kp L             &kp SEMI              &kp RETURN
-&kp LSHFT   &mt LEFT_SHIFT Z  &kp X       &kp C  &kp V  &kp B                   &kp RETURN   &kp ESCAPE        &kp N        &kp M        &kp COMMA        &kp DOT           &mt RIGHT_SHIFT FSLH  &kp MINUS
-&kp LCTRL   &kp LEFT_ALT      &kp DELETE  &none  &none  &mt LEFT_COMMAND LANG2  &lt 2 SPACE  &kp LEFT_COMMAND  &lt 2 ENTER  &lt 1 LANG1  &kp RIGHT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT          &kp DELETE
+&none       &none             &none       &none  &none  &none                                                  &none        &none        &none      &none            &none                 &none
+&kp ESCAPE  &kp Q             &kp W       &kp E  &kp R  &kp T                                                  &kp Y        &kp U        &kp I      &kp O            &kp P                 &kp BSPC
+&kp TAB     &lt 1 A           &lt 3 S     &kp D  &kp F  &kp G                   &none        &none             &kp H        &kp J        &kp K      &kp L            &kp SEMI              &kp RETURN
+&kp LSHFT   &mt LEFT_SHIFT Z  &kp X       &kp C  &kp V  &kp B                   &kp RETURN   &kp ESCAPE        &kp N        &kp M        &kp COMMA  &kp DOT          &mt RIGHT_SHIFT FSLH  &kp MINUS
+&kp LCTRL   &kp LEFT_ALT      &kp DELETE  &none  &none  &mt LEFT_COMMAND LANG2  &lt 2 SPACE  &kp LEFT_COMMAND  &lt 2 ENTER  &lt 1 LANG1  &kp LCTRL  &kp RIGHT_SHIFT  &kp LEFT_ALT          &kp DELETE
             >;
         };
 
@@ -75,7 +75,7 @@
         layer_2 {
             bindings = <
 &none           &none            &none        &none         &none         &none                         &none         &none         &none         &none          &none             &none
-&trans          &kp EXCLAMATION  &kp JIS_DQT  &kp JIS_LBKT  &kp JIS_RBKT  &kp JIS_BSLH                    &kp N7        &kp N8        &kp N9        &kp JIS_TILDE  &kp JIS_CARET     &kp BACKSPACE
+&trans          &kp EXCLAMATION  &kp JIS_DQT  &kp JIS_LBKT  &kp JIS_RBKT  &kp JIS_BSLH                  &kp N7        &kp N8        &kp N9        &kp JIS_TILDE  &kp JIS_CARET     &kp BACKSPACE
 &kp JIS_STAR    &kp DOLLAR       &kp JIS_SQT  &kp JIS_LPAR  &kp JIS_RPAR  &kp JIS_AMPS  &none   &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JIS_AT     &kp JIS_COLON     &kp RETURN
 &kp LEFT_SHIFT  &kp PERCENT      &kp JIS_AT   &kp JIS_LBRC  &kp JIS_RBRC  &kp JIS_PIPE  &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp HASH       &kp LG(JIS_BSLH)  &kp JIS_UNDER
 &trans          &trans           &trans       &none         &none         &trans        &trans  &trans  &trans        &trans        &kp N0        &kp PERIOD     &trans            &trans
