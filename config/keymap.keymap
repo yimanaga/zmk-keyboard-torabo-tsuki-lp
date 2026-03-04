@@ -39,15 +39,17 @@
 / {
     behaviors {
         /*
-         * Layer3(スクロール)用のlayer-tap。hold-preferredにすることで、
-         * Sホールド中にトラックボールを動かしてもholdがキャンセルされない。
-         * 通常の&ltはtap-preferredのため、ポインティング入力でtap判定される。
+         * Layer3(スクロール)用のlayer-tap。
+         * tap-preferred: 高速タイピング時は通常通りSが入力される。
+         * hold-while-undecided: 判定中でもレイヤーを先に有効化するため、
+         *   Sを押した直後にトラックボールを動かしてもスクロールとして動作する。
          */
         lt_scroll: layer_tap_scroll {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
+            hold-while-undecided;
             bindings = <&mo>, <&kp>;
         };
     };
