@@ -19,7 +19,7 @@
     tapping-term-ms = <200>;
 };
 
-/* レイヤー0,1,2: マウスカーソル / レイヤー3: スクロール */
+/* レイヤー0,1,2,4,5,6: マウスカーソル / レイヤー3: スクロール(Mac) / レイヤー7: スクロール(Windows) */
 
 &trackball_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
@@ -31,6 +31,17 @@
 
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_scaler 1 20>,
+            <&zip_xy_to_scroll_mapper>;
+    };
+
+    scroller_win {
+        layers = <7>;
+
+        /* Windowsの標準スクロール向け: XY軸両方反転 */
+
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 1 20>,
             <&zip_xy_to_scroll_mapper>;
     };
@@ -102,11 +113,52 @@
 
         layer_3 {
             bindings = <
-&none   &none   &none   &none         &none         &none                       &none   &none           &none           &none            &none   &none
-&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                      &trans  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans  &mkp RCLK     &mkp LCLK     &trans  &none       &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &trans  &trans
-&trans  &trans  &trans  &out OUT_USB  &out OUT_BLE  &trans  &bt BT_CLR  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans  &none         &none         &trans  &trans      &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&none   &none   &none   &none         &none         &none                       &none   &none           &none           &none            &none    &none
+&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                      &trans  &trans          &trans          &trans           &trans   &trans
+&trans  &trans  &trans  &mkp RCLK     &mkp LCLK     &trans  &none       &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &trans   &trans
+&trans  &trans  &trans  &out OUT_USB  &out OUT_BLE  &trans  &bt BT_CLR  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &to 4    &trans
+&trans  &trans  &trans  &none         &none         &trans  &trans      &trans  &trans  &trans          &trans          &trans           &trans   &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&none       &none             &none       &none  &none           &none                                                  &none        &none           &none      &none            &none                &none
+&kp ESCAPE  &kp Q             &kp W       &kp E  &kp R           &kp T                                                  &kp Y        &kp U           &kp I      &kp O            &kp P                &kp BSPC
+&kp TAB     &lt 5 A           &lt_scroll 7 S  &kp D  &mt LEFT_ALT F  &kp G                   &none        &none             &kp H        &mt LEFT_ALT J  &kp K      &kp L            &mt LEFT_SHIFT SEMI  &kp RETURN
+&kp LSHFT   &mt LEFT_SHIFT Z  &kp X       &kp C  &kp V           &kp B                   &kp RETURN   &kp LCTRL         &kp N        &kp M           &kp COMMA  &kp DOT          &kp SLASH            &kp MINUS
+&kp LCTRL   &kp LEFT_ALT      &kp DELETE  &none  &none           &mt LEFT_COMMAND LANG2  &lt 6 SPACE  &kp LEFT_COMMAND  &lt 6 ENTER  &lt 5 LANG1     &kp LCTRL  &kp RIGHT_SHIFT  &kp LEFT_ALT         &kp DELETE
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&none             &none         &none               &none      &none               &none                                              &none   &none           &none           &none      &none    &none
+&trans            &kp F1        &kp F2              &kp F3     &kp F4              &kp F5                                             &kp F6  &kp F7          &kp F8          &kp F9     &kp F10  &kp F11
+&trans            &trans        &kp LC(LS(TAB))     &mkp RCLK  &mkp LCLK           &kp LC(TAB)              &none   &none             &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK  &trans   &kp F12
+&kp LEFT_SHIFT    &trans        &kp RIGHT_COMMAND   &kp LC(R)  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)      &trans  &kp LCTRL         &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans   &trans
+&kp LEFT_CONTROL  &kp LEFT_ALT  &trans              &none      &none               &kp LEFT_COMMAND         &trans  &kp LEFT_COMMAND  &trans  &trans          &trans          &trans     &trans   &trans
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&none           &none            &none        &none         &none         &none                         &none         &none         &none         &none          &none             &none
+&trans          &kp EXCLAMATION  &kp JIS_DQT  &kp JIS_LBKT  &kp JIS_RBKT  &kp LG(INT3)                  &kp N7        &kp N8        &kp N9        &kp JIS_TILDE  &kp JIS_CARET     &kp BACKSPACE
+&kp JIS_STAR    &kp DOLLAR       &kp JIS_SQT  &kp JIS_LPAR  &kp JIS_RPAR  &kp JIS_AMPS  &none   &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JIS_AT     &kp JIS_COLON     &kp RETURN
+&kp LEFT_SHIFT  &kp PERCENT      &kp JIS_AT   &kp JIS_LBRC  &kp JIS_RBRC  &kp JIS_PIPE  &trans  &kp LCTRL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp HASH       &kp LG(INT3)      &kp JIS_UNDER
+&trans          &trans           &trans       &none         &none         &trans        &trans  &trans  &trans        &trans        &kp N0        &kp PERIOD     &trans            &trans
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&none   &none   &none   &none         &none         &none                           &none   &none           &none           &none            &none    &none
+&trans  &trans  &trans  &trans        &trans        &trans                          &trans  &trans          &trans          &trans           &trans   &trans
+&trans  &trans  &trans  &mkp RCLK     &mkp LCLK     &trans      &none       &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &trans   &trans
+&trans  &trans  &trans  &out OUT_USB  &out OUT_BLE  &bt BT_PRV  &bt BT_NXT  &kp LCTRL  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &to 0    &trans
+&trans  &trans  &trans  &none         &none         &trans      &trans      &trans  &trans  &trans          &trans          &trans           &trans   &trans
+>>>>>>> abf0e5e (feat: Windows環境用にLayer 4-7を追加し、キーマップビジュアルガイドを作成)
             >;
         };
     };
