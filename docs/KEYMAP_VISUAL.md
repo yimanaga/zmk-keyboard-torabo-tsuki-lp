@@ -107,7 +107,10 @@ Layer 4は基本的にLayer 0と同じですが、Windows環境用に最適化�
 Layer 5-7はそれぞれLayer 1-3に対応します。
 
 **主な違い:**
-- **右手親指ESCキー**: 全レイヤー（4-7）で `Ctrl` に変更（Mac版は `ESC`）
+- **右手親指キー配置:**
+  - ESC → `Windows` キー（Mac版は `ESC`）
+  - Cmd → `Ctrl` キー（Mac版は `Cmd`）
+  - Windows環境でCtrlキーを多用するため、親指でアクセス可能に配置
 - **Layer 5（ファンクション・ナビゲーション）:**
   - タブ移動: `Ctrl+Tab` / `Ctrl+Shift+Tab` （Mac版は `Opt+Cmd+矢印`）
   - ブラウザ戻る/進む: `Alt+←` / `Alt+→` （Mac版は `Cmd+←` / `Cmd+→`）
