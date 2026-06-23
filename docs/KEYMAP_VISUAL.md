@@ -113,7 +113,7 @@ Layer 5-7はそれぞれLayer 1-3に対応します。
   - Windows環境でCtrlキーを多用するため、親指でアクセス可能に配置
 - **Layer 5（ファンクション・ナビゲーション）:**
   - タブ移動: `Ctrl+Tab` / `Ctrl+Shift+Tab` （Mac版は `Opt+Cmd+矢印`）
-  - ブラウザ戻る/進む: `Alt+←` / `Alt+→` （Mac版は `Cmd+←` / `Cmd+→`）
+  - ブラウザ戻る/進む: ブラウザ専用キー `C_AC_BACK` / `C_AC_FORWARD` （Mac版は `Cmd+←` / `Cmd+→`）
   - その他のショートカットも `Cmd` → `Ctrl` に変更
 
 Layer 3から→L4で切り替え、Layer 7から→L0でMac配列に戻ります。
