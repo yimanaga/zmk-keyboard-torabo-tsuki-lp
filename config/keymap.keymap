@@ -114,7 +114,7 @@
         layer_3 {
             bindings = <
 &none   &none   &none   &none         &none         &none                       &none   &none           &none           &none            &none    &none
-&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                      &trans  &trans          &trans          &trans           &trans   &kp C_VOL_UP
+&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                      &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4  &kp C_VOL_UP
 &trans  &trans  &trans  &mkp RCLK     &mkp LCLK     &trans  &none       &none   &trans  &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &trans   &kp C_VOL_DN
 &trans  &trans  &trans  &out OUT_USB  &out OUT_BLE  &trans  &bt BT_CLR  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &to 4    &trans
 &trans  &trans  &trans  &none         &none         &trans  &trans      &trans  &trans  &trans          &trans          &trans           &trans   &trans
@@ -154,7 +154,7 @@
         layer_7 {
             bindings = <
 &none   &none   &none   &none         &none         &none                           &none        &none           &none           &none            &none    &none
-&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                          &trans       &trans          &trans          &trans           &trans   &kp C_VOL_UP
+&trans  &trans  &trans  &bt BT_PRV    &bt BT_NXT    &trans                          &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4  &kp C_VOL_UP
 &trans  &trans  &trans  &mkp RCLK     &mkp LCLK     &trans      &none       &none   &trans       &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &trans   &kp C_VOL_DN
 &trans  &trans  &trans  &out OUT_USB  &out OUT_BLE  &trans      &bt BT_CLR  &kp LEFT_GUI  &trans       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &to 0    &trans
 &trans  &trans  &trans  &none         &none         &trans      &trans      &trans  &trans       &trans          &trans          &trans           &trans   &trans
